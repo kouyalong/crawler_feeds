@@ -1,5 +1,6 @@
 ### 头条、知乎、微博 信息流爬虫
 
+- 作者：[kouyalong](https://www.zhihu.com/people/micbay911)
 - 前言
 - 使用
 

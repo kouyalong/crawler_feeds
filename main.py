@@ -11,11 +11,21 @@
 
 
 from src.crawler.toutiao_web import SpiderTouTiaoWeb
+from src.crawler.toutiao_app import SpiderTouTiaoApp, SpiderTouTiaoAppFeedsDetail
 
 
 def main():
 	s = SpiderTouTiaoWeb()
 	r = s.get_all_news()
+
+	tt_app = SpiderTouTiaoApp()
+	result = tt_app.get_all_news()
+	gid_and_gsr_list = tt_app.analytics_news(result)
+	print(gid_and_gsr_list)
+	for gid, gsr in gid_and_gsr_list:
+		tt_feed_detail = SpiderTouTiaoAppFeedsDetail(gid, gsr)
+		feed_detail = tt_feed_detail.do_request()
+		print(feed_detail)
 
 
 if __name__ == "__main__":

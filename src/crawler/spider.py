@@ -31,5 +31,6 @@ class Spider:
 
 	@response_parse_json
 	def do_request(self):
+		print(self.url)
 		result = requests.get(self.url, headers=self.headers)
 		return result
